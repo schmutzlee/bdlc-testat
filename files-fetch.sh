@@ -1,12 +1,6 @@
 #!/bin/bash
 # 2019-04, Schmutz Philip
 
-
-## ##################################################
-## set config
-cd $(dirname $0)
-source ./config.sh
-
 ## ##################################################
 ## create directories
 test -d ./data || mkdir ./data
