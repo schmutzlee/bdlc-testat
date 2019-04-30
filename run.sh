@@ -10,3 +10,4 @@ source ./config.sh
 ## run scripts
 ./files-fetch.sh
 ./files-convert.sh
+./files-push2hdfs.sh
