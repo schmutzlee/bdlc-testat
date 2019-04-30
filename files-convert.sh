@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# 2019-03, Bruno Grossniklaus, https://github.com/it-gro
+# 2019-04, Philip Schmutz
 
 ## ##################################################
 ## set config
@@ -10,20 +10,29 @@ source ./config.sh
 ## ##################################################
 ## convert latest
 
-cat data/aapl.json | jq -c '
-{
-  location:        .location
-, city:            .city
-, country:         .country
-, distance:        .distance
-, coordinates:     .coordinates
+cat data/aapl.json | jq -c ' ."Stock price"[] |
+{	
+   ticker:	"AAPL"
+,  date:        .date
+,  open:        .open
+,  high:        .high
+,  low:         .low
+,  close:       .close
+,  adj_close:   .adj_close
+,  volume:     .volume
 }
 ' > data/aapl.converted.json
 
-cat data/amzn.json | jq -c '
+cat data/amzn.json | jq -c ' ."Stock price"[] |
 {
-  location:        .location
-, measurements:    .measurements[]
+   ticker:      "AMZN"
+,  date:        .date
+,  open:        .open
+,  high:        .high
+,  low:         .low
+,  close:       .close
+,  adj_close:   .adj_close
+,  volume:     .volume
 }
 ' > data/amzn.converted.json
 
